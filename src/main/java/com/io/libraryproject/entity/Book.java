@@ -33,11 +33,11 @@ public class Book {
     @Column(nullable = false)
     private Integer pageCount;
 
-    @JoinColumn(name = "author_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "author_id", nullable = false)
     @ManyToOne
     private Author authorId;
 
-    @JoinColumn(name = "publisher_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "publisher_id", nullable = false)
     @ManyToOne
     private Publisher publisherId;
 
@@ -46,7 +46,7 @@ public class Book {
     private Integer publishDate;
 
 
-    @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
     @ManyToOne
     private Category categoryId;
 

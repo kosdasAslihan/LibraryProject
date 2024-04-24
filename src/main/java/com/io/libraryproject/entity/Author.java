@@ -19,6 +19,7 @@ import java.util.Set;
 public class Author {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -28,6 +29,7 @@ public class Author {
     @NotNull
     private Boolean builtIn = false;
 
+    @Column(name = "author_id")
     @OneToMany(mappedBy = "authorId")
     Set<Book> bookList = new HashSet<>();
 }
