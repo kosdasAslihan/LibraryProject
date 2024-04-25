@@ -46,4 +46,17 @@ public class AuthorService {
 
         return authors.map(authorMapper::authortoAuthorDTO);
     }
+
+    public void updateAuthor(Long id, AuthorRequest authorRequest) {
+        Author author = authorRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION)));
+        author.setName(authorRequest.getName());
+        authorRepository.save(author);
+    }
+
+    public void deleteAuthorById(Long id) {
+        Author author = authorRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION)));
+        authorRepository.delete(author);
+    }
 }

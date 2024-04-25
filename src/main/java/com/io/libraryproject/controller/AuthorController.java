@@ -2,7 +2,7 @@ package com.io.libraryproject.controller;
 
 import com.io.libraryproject.dto.AuthorDTO;
 import com.io.libraryproject.dto.request.AuthorRequest;
-import com.io.libraryproject.dto.response.ClientResponse;
+import com.io.libraryproject.dto.response.LbResponse;
 import com.io.libraryproject.dto.response.ResponseMessage;
 import com.io.libraryproject.service.AuthorService;
 import jakarta.validation.Valid;
@@ -26,11 +26,11 @@ public class AuthorController {
         this.authorService = authorService;
     }
     @PostMapping
-    public ResponseEntity<ClientResponse> saveAuthor (@Valid @RequestBody AuthorRequest authorRequest) {
+    public ResponseEntity<LbResponse> saveAuthor (@Valid @RequestBody AuthorRequest authorRequest) {
         authorService.saveAuthor(authorRequest);
 
-        ClientResponse clientResponse = new ClientResponse(ResponseMessage.AUTHOR_SAVED_RESPONSE_MESSAGE,true);
-        return new ResponseEntity<>(clientResponse, HttpStatus.CREATED);
+        LbResponse lbResponse = new LbResponse(ResponseMessage.AUTHOR_SAVED_RESPONSE_MESSAGE,true);
+        return new ResponseEntity<>(lbResponse, HttpStatus.CREATED);
     }
     @GetMapping("/visitors/all")
     public ResponseEntity<List<AuthorDTO>> getAllAuthor() {
@@ -54,6 +54,25 @@ public class AuthorController {
         Page<AuthorDTO> allAuthorByPage = authorService.getAllAuthorByPage(pageable);
 
         return ResponseEntity.ok(allAuthorByPage);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<LbResponse> updateAuthor(@PathVariable Long id,
+                                                   @Valid @RequestBody AuthorRequest authorRequest) {
+        authorService.updateAuthor(id, authorRequest);
+
+        LbResponse lbResponse = new LbResponse(ResponseMessage.AUTHOR_UPDATED_RESPONSE_MESSAGE,true);
+
+        return ResponseEntity.ok(lbResponse);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<LbResponse> deleteAuthor(@PathVariable Long id) {
+        authorService.deleteAuthorById(id);
+
+        LbResponse lbResponse = new LbResponse(ResponseMessage.AUTHOR_DELETED_RESPONSE_MESSAGE,true);
+
+        return ResponseEntity.ok(lbResponse);
     }
 
 }
