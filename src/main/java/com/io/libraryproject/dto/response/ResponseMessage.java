@@ -9,4 +9,8 @@ public class ResponseMessage {
     public static final String AUTHOR_SAVED_RESPONSE_MESSAGE = "Author successfully saved" ;
     public static final String AUTHOR_UPDATED_RESPONSE_MESSAGE = "Author successfully updated";
     public static final String AUTHOR_DELETED_RESPONSE_MESSAGE = "Author successfully deleted";
+
+    public static final String PUBLISHER_SAVED_RESPONSE_MESSAGE = "Publisher successfully saved" ;
+    public static final String PUBLISHER_UPDATED_RESPONSE_MESSAGE = "Publisher successfully updated";
+    public static final String PUBLISHER_DELETED_RESPONSE_MESSAGE = "Publisher successfully deleted";
 }

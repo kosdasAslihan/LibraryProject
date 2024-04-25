@@ -38,13 +38,13 @@ public class AuthorService {
     public AuthorDTO getAuthorById(Long id) {
         Author author = authorRepository.findById(id).orElseThrow(()->
                 new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION, id)));
-        return authorMapper.authortoAuthorDTO(author);
+        return authorMapper.authorToAuthorDTO(author);
     }
 
     public Page<AuthorDTO> getAllAuthorByPage(Pageable pageable) {
         Page<Author> authors = authorRepository.findAll(pageable);
 
-        return authors.map(authorMapper::authortoAuthorDTO);
+        return authors.map(authorMapper::authorToAuthorDTO);
     }
 
     public void updateAuthor(Long id, AuthorRequest authorRequest) {
