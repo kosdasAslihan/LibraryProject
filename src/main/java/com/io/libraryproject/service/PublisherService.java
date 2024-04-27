@@ -32,11 +32,6 @@ public class PublisherService {
         publisherRepository.save(publisher);
     }
 
-    public List<PublisherDTO> getAllPublisher() {
-        List<Publisher> publishers = publisherRepository.findAll();
-        return publisherMapper.publisherMap(publishers);
-    }
-
     public PublisherDTO getPublisherById(Long id) {
         Publisher publisher = publisherRepository.findById(id).orElseThrow(()->
                 new ResourceNotFoundException(String.format(ErrorMessage.PUBLISHER_NOT_FOUND_EXCEPTION, id)));
@@ -48,5 +43,18 @@ public class PublisherService {
         Page<Publisher> publishers = publisherRepository.findAll(pageable);
 
         return publishers.map(publisherMapper::publisherToPublisherDTO);
+    }
+
+    public void updatePublisher(Long id, PublisherRequest publisherRequest) {
+        Publisher publisher = publisherRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.PUBLISHER_NOT_FOUND_EXCEPTION)));
+        publisher.setName(publisherRequest.getName());
+        publisherRepository.save(publisher);
+    }
+
+    public void deletePublisher(Long id) {
+        Publisher publisher = publisherRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.PUBLISHER_NOT_FOUND_EXCEPTION)));
+        publisherRepository.delete(publisher);
     }
 }

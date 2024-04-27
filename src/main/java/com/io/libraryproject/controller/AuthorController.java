@@ -32,12 +32,6 @@ public class AuthorController {
         LbResponse lbResponse = new LbResponse(ResponseMessage.AUTHOR_SAVED_RESPONSE_MESSAGE,true);
         return new ResponseEntity<>(lbResponse, HttpStatus.CREATED);
     }
-    @GetMapping("/visitors/all")
-    public ResponseEntity<List<AuthorDTO>> getAllAuthor() {
-        List<AuthorDTO> authorDTOS = authorService.getAllAuthor();
-
-        return ResponseEntity.ok(authorDTOS);
-    }
     @GetMapping("/visitors/{id}")
     public ResponseEntity<AuthorDTO> getAuthorById(@PathVariable Long id) {
         AuthorDTO authorDTO = authorService.getAuthorById(id);
@@ -55,7 +49,6 @@ public class AuthorController {
 
         return ResponseEntity.ok(allAuthorByPage);
     }
-
     @PutMapping("/{id}")
     public ResponseEntity<LbResponse> updateAuthor(@PathVariable Long id,
                                                    @Valid @RequestBody AuthorRequest authorRequest) {
@@ -68,7 +61,7 @@ public class AuthorController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<LbResponse> deleteAuthor(@PathVariable Long id) {
-        authorService.deleteAuthorById(id);
+        authorService.deleteAuthor(id);
 
         LbResponse lbResponse = new LbResponse(ResponseMessage.AUTHOR_DELETED_RESPONSE_MESSAGE,true);
 

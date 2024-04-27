@@ -30,11 +30,6 @@ public class AuthorService {
         authorRepository.save(author);
     }
 
-    public List<AuthorDTO> getAllAuthor() {
-        List<Author> authors = authorRepository.findAll();
-        return authorMapper.authorMap(authors);
-    }
-
     public AuthorDTO getAuthorById(Long id) {
         Author author = authorRepository.findById(id).orElseThrow(()->
                 new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION, id)));
@@ -54,7 +49,7 @@ public class AuthorService {
         authorRepository.save(author);
     }
 
-    public void deleteAuthorById(Long id) {
+    public void deleteAuthor(Long id) {
         Author author = authorRepository.findById(id).orElseThrow(()->
                 new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION)));
         authorRepository.delete(author);

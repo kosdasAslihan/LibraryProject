@@ -32,12 +32,6 @@ public class PublisherController {
         LbResponse lbResponse = new LbResponse(ResponseMessage.PUBLISHER_SAVED_RESPONSE_MESSAGE,true);
         return new ResponseEntity<>(lbResponse, HttpStatus.CREATED);
     }
-    @GetMapping("visitors/all")
-    public ResponseEntity<List<PublisherDTO>> getAllPublisher() {
-        List<PublisherDTO> publisherDTOS = publisherService.getAllPublisher();
-
-        return ResponseEntity.ok(publisherDTOS);
-    }
 
     @GetMapping("/visitors/{id}")
     public ResponseEntity<PublisherDTO> getPublisherById(@PathVariable Long id) {
@@ -55,5 +49,22 @@ public class PublisherController {
         Page<PublisherDTO> allPublisherByPage = publisherService.getAllPublisherByPage(pageable);
 
         return  ResponseEntity.ok(allPublisherByPage);
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<LbResponse> updatePublisher(@PathVariable Long id,
+                                                      @Valid @RequestBody PublisherRequest publisherRequest){
+        publisherService.updatePublisher(id,publisherRequest);
+
+        LbResponse lbResponse = new LbResponse(ResponseMessage.PUBLISHER_UPDATED_RESPONSE_MESSAGE,true);
+
+        return ResponseEntity.ok(lbResponse);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<LbResponse> deletePublisher(@PathVariable Long id) {
+        publisherService.deletePublisher(id);
+
+        LbResponse lbResponse = new LbResponse(ResponseMessage.PUBLISHER_DELETED_RESPONSE_MESSAGE,true);
+
+        return ResponseEntity.ok(lbResponse);
     }
 }
