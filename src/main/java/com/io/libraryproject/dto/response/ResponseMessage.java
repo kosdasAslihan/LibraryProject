@@ -13,4 +13,8 @@ public class ResponseMessage {
     public static final String PUBLISHER_SAVED_RESPONSE_MESSAGE = "Publisher successfully saved" ;
     public static final String PUBLISHER_UPDATED_RESPONSE_MESSAGE = "Publisher successfully updated";
     public static final String PUBLISHER_DELETED_RESPONSE_MESSAGE = "Publisher successfully deleted";
+
+    public static final String CATEGORY_SAVED_RESPONSE_MESSAGE = "Category successfully saved" ;
+    public static final String CATEGORY_UPDATED_RESPONSE_MESSAGE = "Category successfully updated";
+    public static final String CATEGORY_DELETED_RESPONSE_MESSAGE = "Category successfully deleted";
 }
