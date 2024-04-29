@@ -51,5 +51,18 @@ public class CategoryController {
 
         return ResponseEntity.ok(allCategoryByPage);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<LbResponse> updateCategory (@PathVariable Long id,
+                                                      @Valid @RequestBody CategoryRequest categoryRequest) {
+        categoryService.updateCategory(id,categoryRequest);
+        LbResponse lbResponse = new LbResponse(ResponseMessage.CATEGORY_UPDATED_RESPONSE_MESSAGE, true);
+        return ResponseEntity.ok(lbResponse);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<LbResponse> deleteCategory(@PathVariable Long id) {
+        categoryService.deleteCategory(id);
+        LbResponse lbResponse = new LbResponse(ResponseMessage.CATEGORY_DELETED_RESPONSE_MESSAGE,true);
+        return ResponseEntity.ok(lbResponse);
+    }
 
 }

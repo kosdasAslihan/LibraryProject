@@ -3,10 +3,12 @@ package com.io.libraryproject.service;
 import com.io.libraryproject.dto.CategoryDTO;
 import com.io.libraryproject.dto.request.CategoryRequest;
 import com.io.libraryproject.entity.Category;
+import com.io.libraryproject.exception.ConflictException;
 import com.io.libraryproject.exception.ResourceNotFoundException;
 import com.io.libraryproject.exception.message.ErrorMessage;
 import com.io.libraryproject.mapper.CategoryMapper;
 import com.io.libraryproject.repository.CategoryRepository;
+import org.apache.coyote.BadRequestException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,7 @@ public class CategoryService {
         category.setName(categoryRequest.getName());
         category.setSequence(categoryRequest.getSequence());
 
+
         categoryRepository.save(category);
     }
     public List<CategoryDTO> getAllCategory() {
@@ -43,5 +46,19 @@ public class CategoryService {
         Page<Category> categories = categoryRepository.findAll(pageable);
 
         return categories.map(categoryMapper::categoryToCategoryDTO);
+    }
+    public void updateCategory(Long id, CategoryRequest categoryRequest) {
+        Category category = categoryRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.CATEGORY_NOT_FOUND_EXCEPTION)));
+
+        category.setName(categoryRequest.getName());
+        category.setSequence(categoryRequest.getSequence());
+
+        categoryRepository.save(category);
+    }
+    public void deleteCategory(Long id) {
+        Category category = categoryRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.CATEGORY_NOT_FOUND_EXCEPTION)));
+        categoryRepository.delete(category);
     }
 }
