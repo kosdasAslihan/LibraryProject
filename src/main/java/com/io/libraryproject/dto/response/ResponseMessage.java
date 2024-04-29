@@ -17,4 +17,12 @@ public class ResponseMessage {
     public static final String CATEGORY_SAVED_RESPONSE_MESSAGE = "Category successfully saved" ;
     public static final String CATEGORY_UPDATED_RESPONSE_MESSAGE = "Category successfully updated";
     public static final String CATEGORY_DELETED_RESPONSE_MESSAGE = "Category successfully deleted";
+
+    public static final String LOAN_SAVED_RESPONSE_MESSAGE = "Loan successfully saved" ;
+    public static final String LOAN_UPDATED_RESPONSE_MESSAGE = "Loan successfully updated";
+    public static final String LOAN_DELETED_RESPONSE_MESSAGE = "Loan successfully deleted";
+
+    public static final String USER_SAVED_RESPONSE_MESSAGE = "User successfully saved" ;
+    public static final String USER_UPDATED_RESPONSE_MESSAGE = "User successfully updated";
+    public static final String USER_DELETED_RESPONSE_MESSAGE = "User successfully deleted";
 }

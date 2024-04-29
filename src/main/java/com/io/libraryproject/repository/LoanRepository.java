@@ -1,9 +1,9 @@
 package com.io.libraryproject.repository;
 
-import com.io.libraryproject.entity.Publisher;
+import com.io.libraryproject.entity.Loan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PublisherRepository extends JpaRepository<Publisher, Long> {
+public interface LoanRepository extends JpaRepository<Loan, Long> {
 }

@@ -19,7 +19,6 @@ import java.util.Set;
 
 public class AuthorDTO {
 
-
     private String name;
 
     private Boolean builtIn = false;
