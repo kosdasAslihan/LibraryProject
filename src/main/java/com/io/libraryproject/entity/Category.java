@@ -29,10 +29,12 @@ public class Category {
     @NotNull
     private Boolean builtIn = false;
 
-    @NotNull
-    private int sequence = 1000; //save category yapıldığı zaman sequence her seferinde 1 artsın
+    private int sequence;
 
     @OneToMany(mappedBy = "categoryId")
     Set<Book> bookList = new HashSet<>();
+
+    public static int sequenceValue = 999;
+
 
 }

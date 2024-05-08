@@ -24,32 +24,30 @@ import java.util.Set;
 @NoArgsConstructor
 public class UserRequest {
 
-    @NotNull
-    @Size(min = 2, max = 30)
     private String firstName;
 
-    @NotNull
-    @Size(min = 2, max = 30)
     private String lastName;
 
-    @NotNull
-    @Size(min = 10, max = 100)
     private String address;
 
-    @Pattern(regexp = "^((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$",
-            message = "Please provide valid phone number")
-    @Column(length = 10, nullable = false)
     private String phone;
 
-    @NotNull
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private LocalDate birthDate;
 
-    @NotNull
-    @Email
     private String email;
 
-    @Column(nullable = false)
+    private String password;
+
     private String resetPasswordCode;
+
+    private Set<String> roles;
+
+    public void setRoles(Set<Role> roles) {
+        Set<String> roleStr = new HashSet<>();
+        roles.forEach(r->{
+            roleStr.add(r.getRoleType().getName());
+        });
+        this.roles = roleStr;
+    }
 
 }

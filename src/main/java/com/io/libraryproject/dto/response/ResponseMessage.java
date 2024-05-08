@@ -25,4 +25,6 @@ public class ResponseMessage {
     public static final String USER_SAVED_RESPONSE_MESSAGE = "User successfully saved" ;
     public static final String USER_UPDATED_RESPONSE_MESSAGE = "User successfully updated";
     public static final String USER_DELETED_RESPONSE_MESSAGE = "User successfully deleted";
+
+    public final static String REGISTER_RESPONSE_MESSAGE="Register succesfully done";
 }

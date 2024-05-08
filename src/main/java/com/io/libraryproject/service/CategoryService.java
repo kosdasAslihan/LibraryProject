@@ -26,12 +26,19 @@ public class CategoryService {
 
     public void saveCategory(CategoryRequest categoryRequest) {
         Category category = new Category();
+
+        Category.sequenceValue = Category.sequenceValue + 1;
+
         category.setName(categoryRequest.getName());
-        category.setSequence(categoryRequest.getSequence());
+        category.setSequence(Category.sequenceValue);
+
+
+        //category.setSequence(category.getSequence()+1);
 
 
         categoryRepository.save(category);
     }
+
     public List<CategoryDTO> getAllCategory() {
         List<Category> getAllCategories = categoryRepository.findAll();
         return categoryMapper.mapCategory(getAllCategories);
@@ -52,7 +59,6 @@ public class CategoryService {
                 new ResourceNotFoundException(String.format(ErrorMessage.CATEGORY_NOT_FOUND_EXCEPTION)));
 
         category.setName(categoryRequest.getName());
-        category.setSequence(categoryRequest.getSequence());
 
         categoryRepository.save(category);
     }

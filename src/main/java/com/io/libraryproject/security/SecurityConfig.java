@@ -48,7 +48,7 @@ public class SecurityConfig {
                         "/user/resetpassword/**",
                         "/publishers/visitors/**",
                         "/authors/visitors/**",
-                        "/category/**",
+                        "/categories/visitors/**",
                         "/books/visitors/**",
                         "/actuator/info",
                         "/actuator/health").permitAll().
