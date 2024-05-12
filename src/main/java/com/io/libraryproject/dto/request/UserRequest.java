@@ -40,7 +40,7 @@ public class UserRequest {
 
     private String resetPasswordCode;
 
-    private Set<String> roles;
+    private Set<String> roles = new HashSet<>();
 
     public void setRoles(Set<Role> roles) {
         Set<String> roleStr = new HashSet<>();

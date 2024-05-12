@@ -24,8 +24,8 @@ public class UserController {
         this.userService = userService;
     }
     @PostMapping
-    public ResponseEntity<LbResponse> createUser(@Valid @RequestBody UserRequest userRequest) {
-        userService.createUser(userRequest);
+    public ResponseEntity<LbResponse> saveUser(@Valid @RequestBody UserRequest userRequest) {
+        userService.saveUser(userRequest);
 
         LbResponse lbResponse = new LbResponse(ResponseMessage.USER_SAVED_RESPONSE_MESSAGE,true);
         return new ResponseEntity<>(lbResponse, HttpStatus.CREATED);

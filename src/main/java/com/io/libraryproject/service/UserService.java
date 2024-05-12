@@ -37,7 +37,7 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public void createUser(@Valid UserRequest registerRequest) {
+    public void saveUser(@Valid UserRequest registerRequest) {
         Boolean existEmail = userRepository.existsByEmail(registerRequest.getEmail());
 
         if (existEmail) {
@@ -85,7 +85,8 @@ public class UserService {
         user.setBirthDate(registerRequest.getBirthDate());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(encodedPassword);
-        user.setResetPasswordCode(registerRequest.getResetPasswordCode());
+        user.setRoles(roles);
+        //user.setResetPasswordCode(registerRequest.getResetPasswordCode());
 
         userRepository.save(user);
 
@@ -124,4 +125,6 @@ public class UserService {
     private Page<UserDTO> getUserByPage(Page<User> userPage) {
         return userPage.map(userMapper::userToUserDto);
     }
+
+
 }

@@ -22,9 +22,11 @@ public class ResponseMessage {
     public static final String LOAN_UPDATED_RESPONSE_MESSAGE = "Loan successfully updated";
     public static final String LOAN_DELETED_RESPONSE_MESSAGE = "Loan successfully deleted";
 
+    public final static String USER_CREATED_RESPONSE_MESSAGE="User succesfully created";
     public static final String USER_SAVED_RESPONSE_MESSAGE = "User successfully saved" ;
     public static final String USER_UPDATED_RESPONSE_MESSAGE = "User successfully updated";
     public static final String USER_DELETED_RESPONSE_MESSAGE = "User successfully deleted";
+
 
     public final static String REGISTER_RESPONSE_MESSAGE="Register succesfully done";
 }

@@ -23,6 +23,7 @@ import java.util.Set;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -42,11 +43,11 @@ public class User {
 
     @Pattern(regexp = "^((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$",
             message = "Please provide valid phone number")
-    @Column(length = 10, nullable = false)
+    @Column(length = 14, nullable = false)
     private String phone;
 
     @NotNull
-    @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
+    //@JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private LocalDate birthDate;
 
     @NotNull
@@ -58,7 +59,6 @@ public class User {
 
     private LocalDateTime createDate = LocalDateTime.now();
 
-    @Column(nullable = false)
     private String resetPasswordCode;
 
     private Boolean builtIn = false ;

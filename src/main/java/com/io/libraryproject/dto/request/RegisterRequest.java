@@ -1,5 +1,6 @@
 package com.io.libraryproject.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -31,7 +32,8 @@ public class RegisterRequest {
     @NotNull(message = "phone number cannot be null")
     private String phone;
 
-
+    @NotNull
+    //@JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
     private LocalDate birthDate;
 
     @Email(message = "please provide valid email")
@@ -40,8 +42,5 @@ public class RegisterRequest {
 
     @NotNull(message = "password cannot be null")
     private String password;
-
-    @NotNull(message = "password cannot be null")
-    private String resetPasswordCode;
 
 }

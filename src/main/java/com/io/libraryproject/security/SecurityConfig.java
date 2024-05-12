@@ -38,11 +38,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).
                 authorizeRequests().
-                requestMatchers("/login",
-                        "/signin",
-                        "/register",
-                        "/index.html",
+                requestMatchers("/index.html",
                         "/",
+                        "/auth/**",
                         "/files/download/**",
                         "/files/display/**",
                         "/user/resetpassword/**",

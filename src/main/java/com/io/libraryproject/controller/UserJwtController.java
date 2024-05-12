@@ -17,9 +17,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/auth")
 public class UserJwtController {
     private final JwtUtils jwtUtils;
 
@@ -37,8 +39,9 @@ public class UserJwtController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<LbResponse> registerUser(@Valid @RequestBody UserRequest registerRequest) {
-        userService.createUser(registerRequest);
+    public ResponseEntity<LbResponse> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
+
+        userService.saveUser(registerRequest);
 
         LbResponse libResponse = new LbResponse(ResponseMessage.REGISTER_RESPONSE_MESSAGE, true);
         return new ResponseEntity<>(libResponse, HttpStatus.CREATED);
