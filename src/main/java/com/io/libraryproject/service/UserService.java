@@ -2,24 +2,27 @@ package com.io.libraryproject.service;
 
 import com.io.libraryproject.dto.UserDTO;
 import com.io.libraryproject.dto.request.RegisterRequest;
+import com.io.libraryproject.dto.request.UpdatePasswordRequest;
 import com.io.libraryproject.dto.request.UserRequest;
+import com.io.libraryproject.entity.Loan;
 import com.io.libraryproject.entity.Role;
 import com.io.libraryproject.entity.User;
 import com.io.libraryproject.entity.enums.RoleType;
+import com.io.libraryproject.exception.BadRequestException;
 import com.io.libraryproject.exception.ConflictException;
 import com.io.libraryproject.exception.ResourceNotFoundException;
 import com.io.libraryproject.exception.message.ErrorMessage;
 import com.io.libraryproject.mapper.UserMapper;
+import com.io.libraryproject.repository.LoanRepository;
 import com.io.libraryproject.repository.UserRepository;
 import com.io.libraryproject.security.SecurityUtils;
 import jakarta.validation.Valid;
-import org.mapstruct.control.MappingControl;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.ZoneId;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,11 +33,13 @@ public class UserService {
     private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
-    public UserService(UserRepository userRepository, RoleService roleService, PasswordEncoder passwordEncoder, UserMapper userMapper) {
+    private final LoanRepository loanRepository;
+    public UserService(UserRepository userRepository, RoleService roleService, PasswordEncoder passwordEncoder, UserMapper userMapper, LoanRepository loanRepository) {
         this.userRepository = userRepository;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
         this.userMapper = userMapper;
+        this.loanRepository = loanRepository;
     }
 
     public void saveUser(@Valid UserRequest registerRequest) {
@@ -124,6 +129,55 @@ public class UserService {
     }
     private Page<UserDTO> getUserByPage(Page<User> userPage) {
         return userPage.map(userMapper::userToUserDto);
+    }
+    public void updatePassword(UpdatePasswordRequest updatePasswordRequest) {
+        User user = getCurrentUser();
+
+        if (user.getBuiltIn()) {
+            throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
+        }
+        if (!passwordEncoder.matches(updatePasswordRequest.getOldPassword(), user.getPassword())) {
+            throw new BadRequestException(ErrorMessage.PASSWORD_NOT_MATCHED_MESSAGE);
+        }
+
+        String hashedPassword = passwordEncoder.encode(updatePasswordRequest.getNewPassword());
+        user.setPassword(hashedPassword);
+
+        userRepository.save(user);
+    }
+
+    public User getById(Long id) {
+        User user = userRepository.findUserById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.RESOURCE_NOT_FOUND_EXCEPTION, id)));
+        return user;
+    }
+    public void deleteUserById(Long id) {
+        User user = getById(id);
+
+        if (user.getBuiltIn()) {
+            throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
+        }
+
+        boolean existsByUser = loanRepository.existsByUser(user);
+        List<Loan> loanList = loanRepository.findAllByUserId(id);
+
+        if (existsByUser) {
+            int count = 0;
+            for (Loan w : loanList) {
+                if (w.getReturnDate() == null) {
+                    count++;
+                }
+            }
+            if (count > 0) {
+                throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
+            }
+        }
+
+        userRepository.deleteById(id);
+    }
+
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 
 

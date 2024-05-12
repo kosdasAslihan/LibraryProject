@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class PublisherController {
         this.publisherService = publisherService;
     }
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> savePublisher(@Valid @RequestBody PublisherRequest publisherRequest) {
         publisherService.savePublisher(publisherRequest);
 
@@ -34,12 +36,14 @@ public class PublisherController {
     }
 
     @GetMapping("/visitors/{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<PublisherDTO> getPublisherById(@PathVariable Long id) {
         PublisherDTO publisherDTO = publisherService.getPublisherById(id);
 
         return ResponseEntity.ok(publisherDTO);
     }
     @GetMapping("/visitors/page")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<Page<PublisherDTO>> getAllPublisherByPage(@RequestParam("page") int page,
                                                                     @RequestParam("size") int size,
                                                                     @RequestParam("sort") String prop,
@@ -51,6 +55,7 @@ public class PublisherController {
         return  ResponseEntity.ok(allPublisherByPage);
     }
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> updatePublisher(@PathVariable Long id,
                                                       @Valid @RequestBody PublisherRequest publisherRequest){
         publisherService.updatePublisher(id,publisherRequest);
@@ -60,6 +65,7 @@ public class PublisherController {
         return ResponseEntity.ok(lbResponse);
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> deletePublisher(@PathVariable Long id) {
         publisherService.deletePublisher(id);
 

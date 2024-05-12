@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> saveCategory(@Valid @RequestBody CategoryRequest categoryRequest) {
         categoryService.saveCategory(categoryRequest);
 
@@ -30,17 +32,20 @@ public class CategoryController {
         return ResponseEntity.ok(lbResponse);
     }
     @GetMapping("/visitors/all")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<List<CategoryDTO>> getAllCategory(){
         List<CategoryDTO> categoryDTOList = categoryService.getAllCategory();
         return ResponseEntity.ok(categoryDTOList);
     }
     @GetMapping("/visitors/{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<CategoryDTO> getCategoryById(@PathVariable Long id) {
         CategoryDTO categoryDTO = categoryService.getCategoryById(id);
 
         return ResponseEntity.ok(categoryDTO);
     }
     @GetMapping("/visitors/pages")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<Page<CategoryDTO>> getAllCategoryByPage(@RequestParam("page") int page,
                                                                   @RequestParam("size") int size,
                                                                   @RequestParam("sort") String prop,
@@ -52,6 +57,7 @@ public class CategoryController {
         return ResponseEntity.ok(allCategoryByPage);
     }
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> updateCategory (@PathVariable Long id,
                                                       @Valid @RequestBody CategoryRequest categoryRequest) {
         categoryService.updateCategory(id,categoryRequest);
@@ -59,6 +65,7 @@ public class CategoryController {
         return ResponseEntity.ok(lbResponse);
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategory(id);
         LbResponse lbResponse = new LbResponse(ResponseMessage.CATEGORY_DELETED_RESPONSE_MESSAGE,true);

@@ -29,4 +29,5 @@ public class ResponseMessage {
 
 
     public final static String REGISTER_RESPONSE_MESSAGE="Register succesfully done";
+    public final static String PASSWORD_UPDATED_RESPONSE_MESSAGE="Password successfully updated";
 }

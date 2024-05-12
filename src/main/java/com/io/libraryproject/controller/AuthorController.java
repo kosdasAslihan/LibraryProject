@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> saveAuthor (@Valid @RequestBody AuthorRequest authorRequest) {
         authorService.saveAuthor(authorRequest);
 
@@ -33,12 +35,14 @@ public class AuthorController {
         return new ResponseEntity<>(lbResponse, HttpStatus.CREATED);
     }
     @GetMapping("/visitors/{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<AuthorDTO> getAuthorById(@PathVariable Long id) {
         AuthorDTO authorDTO = authorService.getAuthorById(id);
 
         return ResponseEntity.ok(authorDTO);
     }
     @GetMapping("/visitors/pages")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<Page<AuthorDTO>> getAllAuthorByPage(@RequestParam("page") int page,
                                                               @RequestParam("size") int size,
                                                               @RequestParam("sort") String prop,
@@ -50,6 +54,7 @@ public class AuthorController {
         return ResponseEntity.ok(allAuthorByPage);
     }
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> updateAuthor(@PathVariable Long id,
                                                    @Valid @RequestBody AuthorRequest authorRequest) {
         authorService.updateAuthor(id, authorRequest);
@@ -60,6 +65,7 @@ public class AuthorController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<LbResponse> deleteAuthor(@PathVariable Long id) {
         authorService.deleteAuthor(id);
 

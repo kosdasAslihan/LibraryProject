@@ -14,4 +14,5 @@ public class ErrorMessage {
     public final static String JWTTOKEN_ERROR_MESSAGE = "JWT Token Validation Error : %s";
     public final static String PRINCIPAL_FOUND_MESSAGE = "User not found";
     public final static String USER_NOT_FOUND_EXCEPTION = "User with id : %s not found";
+    public final static String PASSWORD_NOT_MATCHED_MESSAGE = "Your passwords are not matched";
 }
