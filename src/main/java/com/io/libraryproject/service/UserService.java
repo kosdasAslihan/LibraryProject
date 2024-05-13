@@ -1,6 +1,7 @@
 package com.io.libraryproject.service;
 
 import com.io.libraryproject.dto.UserDTO;
+import com.io.libraryproject.dto.request.AdminUserUpdateRequest;
 import com.io.libraryproject.dto.request.RegisterRequest;
 import com.io.libraryproject.dto.request.UpdatePasswordRequest;
 import com.io.libraryproject.dto.request.UserRequest;
@@ -69,33 +70,6 @@ public class UserService {
         userRepository.save(user);
 
     }
-    public void saveUser(@Valid RegisterRequest registerRequest) {
-        Boolean existEmail = userRepository.existsByEmail(registerRequest.getEmail());
-
-        if (existEmail) {
-            throw new ConflictException(String.format(ErrorMessage.EMAIL_ALREADY_EXIST_MESSAGE));
-        }
-        Role role = roleService.findByType(RoleType.ROLE_MEMBER);
-        Set<Role> roles = new HashSet<>();
-        roles.add(role);
-
-        String password = registerRequest.getPassword();
-        String encodedPassword = passwordEncoder.encode(password);
-
-        User user = new User();
-        user.setFirstName(registerRequest.getFirstName());
-        user.setLastName(registerRequest.getLastName());
-        user.setAddress(registerRequest.getAddress());
-        user.setPhone(registerRequest.getPhone());
-        user.setBirthDate(registerRequest.getBirthDate());
-        user.setEmail(registerRequest.getEmail());
-        user.setPassword(encodedPassword);
-        user.setRoles(roles);
-        //user.setResetPasswordCode(registerRequest.getResetPasswordCode());
-
-        userRepository.save(user);
-
-    }
     public User getUserByEmail(String email) {
         User user = userRepository.findByEmail(email);
 
@@ -145,6 +119,26 @@ public class UserService {
 
         userRepository.save(user);
     }
+    @Transactional
+    public void updateUserByAdmin(Long id, AdminUserUpdateRequest adminUserUpdateRequest) {
+        User user = getCurrentUser();
+
+        if (user.getBuiltIn()) {
+            throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
+        }
+        boolean existEmail = userRepository.existsByEmail(adminUserUpdateRequest.getEmail());
+        if (existEmail && !adminUserUpdateRequest.getEmail().equals(user.getEmail())) {
+            throw new BadRequestException(ErrorMessage.EMAIL_ALREADY_EXIST_MESSAGE);
+        }
+        userRepository.update(user.getId(),
+                adminUserUpdateRequest.getFirstName(),
+                adminUserUpdateRequest.getLastName(),
+                adminUserUpdateRequest.getAddress(),
+                adminUserUpdateRequest.getPhone(),
+                adminUserUpdateRequest.getBirthDate(),
+                adminUserUpdateRequest.getEmail(),
+                adminUserUpdateRequest.getResetPasswordCode());
+    }
 
     public User getById(Long id) {
         User user = userRepository.findUserById(id).orElseThrow(()->
@@ -179,6 +173,4 @@ public class UserService {
     public List<User> getUsers() {
         return userRepository.findAll();
     }
-
-
 }

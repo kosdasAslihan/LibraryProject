@@ -8,6 +8,7 @@ import com.io.libraryproject.dto.response.LbResponse;
 import com.io.libraryproject.dto.response.ResponseMessage;
 import com.io.libraryproject.service.UserService;
 import jakarta.validation.Valid;
+import org.hibernate.annotations.Cache;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -73,14 +74,15 @@ public class UserController {
         LbResponse lbResponse = new LbResponse(ResponseMessage.PASSWORD_UPDATED_RESPONSE_MESSAGE,true);
         return ResponseEntity.ok(lbResponse);
     }
-    /*@PutMapping
+    @PutMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
-    public ResponseEntity<LbResponse> updateUser(@Valid @RequestBody UserRequest userRequest) {
-        userService.updateUser(userRequest);
-
+    public ResponseEntity<LbResponse> updateUserByAdmin(@PathVariable Long id,
+                                                        @Valid @RequestBody AdminUserUpdateRequest adminUserUpdateRequest) {
+        userService.updateUserByAdmin(id,adminUserUpdateRequest);
         LbResponse lbResponse = new LbResponse(ResponseMessage.USER_UPDATED_RESPONSE_MESSAGE,true);
+
         return ResponseEntity.ok(lbResponse);
-    }*/
+    }
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
     public ResponseEntity<LbResponse> deleteUser(@PathVariable Long id) {
