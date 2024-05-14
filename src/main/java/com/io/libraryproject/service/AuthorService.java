@@ -3,6 +3,7 @@ package com.io.libraryproject.service;
 import com.io.libraryproject.dto.AuthorDTO;
 import com.io.libraryproject.dto.request.AuthorRequest;
 import com.io.libraryproject.entity.Author;
+import com.io.libraryproject.entity.Category;
 import com.io.libraryproject.exception.ResourceNotFoundException;
 import com.io.libraryproject.exception.message.ErrorMessage;
 import com.io.libraryproject.mapper.AuthorMapper;
@@ -29,6 +30,10 @@ public class AuthorService {
 
         authorRepository.save(author);
     }
+    public List<AuthorDTO> getAllAuthor() {
+        List<Author> getAllAuthors = authorRepository.findAll();
+        return authorMapper.mapAuthor(getAllAuthors);
+    }
 
     public AuthorDTO getAuthorById(Long id) {
         Author author = authorRepository.findById(id).orElseThrow(()->
@@ -54,4 +59,6 @@ public class AuthorService {
                 new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION)));
         authorRepository.delete(author);
     }
+
+
 }

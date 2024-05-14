@@ -43,4 +43,5 @@ public class RegisterRequest {
     @NotNull(message = "password cannot be null")
     private String password;
 
+    private String ResetPasswordCode;
 }

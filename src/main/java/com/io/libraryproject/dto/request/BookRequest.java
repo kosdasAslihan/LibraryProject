@@ -26,4 +26,8 @@ public class BookRequest {
     private String shelfCode;
 
     private boolean featured;
+
+    private boolean active;
+
+    private boolean loanable;
 }

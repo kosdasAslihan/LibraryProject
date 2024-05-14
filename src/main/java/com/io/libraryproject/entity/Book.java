@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -35,11 +36,11 @@ public class Book {
 
     @JoinColumn(name = "author_id", nullable = false)
     @ManyToOne
-    private Author authorId;
+    private Author author;
 
     @JoinColumn(name = "publisher_id", nullable = false)
     @ManyToOne
-    private Publisher publisherId;
+    private Publisher publisher;
 
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy")
@@ -48,7 +49,7 @@ public class Book {
 
     @JoinColumn(name = "category_id", nullable = false)
     @ManyToOne
-    private Category categoryId;
+    private Category category;
 
     @NotNull
     private boolean loanable = true;

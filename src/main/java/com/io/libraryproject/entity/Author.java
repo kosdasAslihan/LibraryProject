@@ -30,6 +30,6 @@ public class Author {
     private Boolean builtIn = false;
 
     @Column(name = "author_id")
-    @OneToMany(mappedBy = "authorId")
+    @OneToMany
     Set<Book> bookList = new HashSet<>();
 }

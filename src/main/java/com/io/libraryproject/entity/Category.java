@@ -31,7 +31,7 @@ public class Category {
 
     private int sequence;
 
-    @OneToMany(mappedBy = "categoryId")
+    @OneToMany
     Set<Book> bookList = new HashSet<>();
 
     public static int sequenceValue = 999;

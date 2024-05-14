@@ -11,4 +11,6 @@ public interface AuthorMapper {
     List<AuthorDTO> authorMap(List<Author> authors);
 
     AuthorDTO authorToAuthorDTO(Author author);
+
+    List<AuthorDTO> mapAuthor(List<Author> getAllAuthors);
 }

@@ -17,23 +17,11 @@ import java.time.LocalDateTime;
 public class LoanRequest {
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="user_id", referencedColumnName = "id")
-    private User user;
+    private Long userId;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="book_id", referencedColumnName = "id")
-    private Book book;
+    private Long bookId;
 
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm:ss")
-    private LocalDateTime expireDate;
-
-    @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm:ss")
-    private LocalDateTime returnDate;
-
-    @Column(length = 300, nullable = false)
     private String notes;
 }

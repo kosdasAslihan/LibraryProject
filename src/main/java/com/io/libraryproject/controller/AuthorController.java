@@ -1,6 +1,7 @@
 package com.io.libraryproject.controller;
 
 import com.io.libraryproject.dto.AuthorDTO;
+import com.io.libraryproject.dto.CategoryDTO;
 import com.io.libraryproject.dto.request.AuthorRequest;
 import com.io.libraryproject.dto.response.LbResponse;
 import com.io.libraryproject.dto.response.ResponseMessage;
@@ -34,8 +35,14 @@ public class AuthorController {
         LbResponse lbResponse = new LbResponse(ResponseMessage.AUTHOR_SAVED_RESPONSE_MESSAGE,true);
         return new ResponseEntity<>(lbResponse, HttpStatus.CREATED);
     }
-    @GetMapping("/visitors/{id}")
+    @GetMapping("/visitors/all")
     @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
+    public ResponseEntity<List<AuthorDTO>> getAllAuthor(){
+        List<AuthorDTO> authorDTOList = authorService.getAllAuthor();
+        return ResponseEntity.ok(authorDTOList);
+    }
+    @GetMapping("/visitors/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<AuthorDTO> getAuthorById(@PathVariable Long id) {
         AuthorDTO authorDTO = authorService.getAuthorById(id);
 

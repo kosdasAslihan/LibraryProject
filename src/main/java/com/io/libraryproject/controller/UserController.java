@@ -27,14 +27,7 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    @PostMapping
-    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
-    public ResponseEntity<LbResponse> saveUser(@Valid @RequestBody UserRequest userRequest) {
-        userService.saveUser(userRequest);
 
-        LbResponse lbResponse = new LbResponse(ResponseMessage.USER_SAVED_RESPONSE_MESSAGE,true);
-        return new ResponseEntity<>(lbResponse, HttpStatus.CREATED);
-    }
     @GetMapping("/auth/all")
     @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
     public ResponseEntity<List<UserDTO>> getAllUser(){
@@ -49,7 +42,7 @@ public class UserController {
         return ResponseEntity.ok(userDTO);
     }
     @GetMapping("/{id}/auth")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
         UserDTO userDTO = userService.getUserById(id);
         return ResponseEntity.ok(userDTO);

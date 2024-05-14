@@ -38,7 +38,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoryDTOList);
     }
     @GetMapping("/visitors/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CategoryDTO> getCategoryById(@PathVariable Long id) {
         CategoryDTO categoryDTO = categoryService.getCategoryById(id);
 

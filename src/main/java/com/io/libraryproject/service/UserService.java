@@ -43,18 +43,17 @@ public class UserService {
         this.loanRepository = loanRepository;
     }
 
-    public void saveUser(@Valid UserRequest registerRequest) {
-        Boolean existEmail = userRepository.existsByEmail(registerRequest.getEmail());
+    public void saveUser(RegisterRequest registerRequest) {
 
-        if (existEmail) {
-            throw new ConflictException(String.format(ErrorMessage.EMAIL_ALREADY_EXIST_MESSAGE));
+        if (userRepository.existsByEmail(registerRequest.getEmail())) {
+            throw new ConflictException(String.format(ErrorMessage.EMAIL_ALREADY_EXIST_MESSAGE, registerRequest.getEmail()));
         }
+
         Role role = roleService.findByType(RoleType.ROLE_MEMBER);
         Set<Role> roles = new HashSet<>();
         roles.add(role);
 
-        String password = registerRequest.getPassword();
-        String encodedPassword = passwordEncoder.encode(password);
+        String encodedPassword = passwordEncoder.encode(registerRequest.getPassword());
 
         User user = new User();
         user.setFirstName(registerRequest.getFirstName());
@@ -85,7 +84,7 @@ public class UserService {
         UserDTO userDTO = userMapper.userToUserDto(user);
         return userDTO;
     }
-    private User getCurrentUser() {
+    public User getCurrentUser() {
         String email = SecurityUtils.getCurrentUserLogin().orElseThrow(()->
                 new ResourceNotFoundException(ErrorMessage.PRINCIPAL_FOUND_MESSAGE));
         User user = getUserByEmail(email);

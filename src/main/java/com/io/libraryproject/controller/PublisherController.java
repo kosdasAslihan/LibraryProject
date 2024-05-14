@@ -36,7 +36,7 @@ public class PublisherController {
     }
 
     @GetMapping("/visitors/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF') or hasRole('MEMBER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<PublisherDTO> getPublisherById(@PathVariable Long id) {
         PublisherDTO publisherDTO = publisherService.getPublisherById(id);
 

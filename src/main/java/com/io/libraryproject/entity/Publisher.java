@@ -28,6 +28,6 @@ public class Publisher {
     @NotNull
     private Boolean builtIn = false;
 
-    @OneToMany(mappedBy = "publisherId")
+    @OneToMany
     Set<Book> bookList = new HashSet<>();
 }
