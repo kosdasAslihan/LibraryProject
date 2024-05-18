@@ -58,6 +58,22 @@ public class BookController {
 
         return ResponseEntity.ok(allBookByPage);
     }
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<LbResponse> updateBook (@RequestParam("id") Long id,
+                                                  @Valid @RequestBody BookRequest bookRequest) {
+        bookService.updateBook(id,bookRequest);
+        LbResponse lbResponse = new LbResponse(ResponseMessage.BOOK_UPDATED_RESPONSE_MESSAGE,true);
+        return ResponseEntity.ok(lbResponse);
+    }
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<LbResponse> deleteBook(@PathVariable Long id) {
+        bookService.deleteBook(id);
+
+        LbResponse lbResponse = new LbResponse(ResponseMessage.BOOK_DELETED_RESPONSE_MESSAGE,true);
+        return ResponseEntity.ok(lbResponse);
+    }
 
 
 

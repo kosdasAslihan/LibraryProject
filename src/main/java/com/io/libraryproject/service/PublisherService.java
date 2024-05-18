@@ -57,4 +57,8 @@ public class PublisherService {
                 new ResourceNotFoundException(String.format(ErrorMessage.PUBLISHER_NOT_FOUND_EXCEPTION)));
         publisherRepository.delete(publisher);
     }
+    public Publisher getPublisher(Long id) {
+        return publisherRepository.findPublisherById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.PUBLISHER_NOT_FOUND_EXCEPTION,id)));
+    }
 }

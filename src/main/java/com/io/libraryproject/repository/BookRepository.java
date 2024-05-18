@@ -8,5 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
-    ;
+
+    Optional<Book> findBookById(Long id);
+    boolean existsByIsbn(String isbn);
+
+    Integer findBookCountById(Long id);
 }

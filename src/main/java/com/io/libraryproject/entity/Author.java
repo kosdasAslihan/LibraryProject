@@ -27,7 +27,7 @@ public class Author {
     private String name;
 
     @NotNull
-    private Boolean builtIn = false;
+    private boolean builtIn = false;
 
     @Column(name = "author_id")
     @OneToMany

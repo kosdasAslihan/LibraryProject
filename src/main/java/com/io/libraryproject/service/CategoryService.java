@@ -67,4 +67,8 @@ public class CategoryService {
                 new ResourceNotFoundException(String.format(ErrorMessage.CATEGORY_NOT_FOUND_EXCEPTION)));
         categoryRepository.delete(category);
     }
+    public Category findCategoryById(Long id) {
+        return categoryRepository.findById(id).orElseThrow(()->
+                new ResourceNotFoundException(ErrorMessage.CATEGORY_NOT_FOUND_EXCEPTION));
+    }
 }

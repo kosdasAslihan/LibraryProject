@@ -1,433 +1,100 @@
-2024-05-14 13:43:09,795 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 11372 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 13:43:09,801 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 13:43:11,048 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 13:43:11,119 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 63 ms. Found 7 JPA repository interfaces.
-2024-05-14 13:43:11,926 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
-2024-05-14 13:43:11,938 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-2024-05-14 13:43:11,938 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-05-14 13:43:12,006 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-2024-05-14 13:43:12,006 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 2164 ms
-2024-05-14 13:43:12,346 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 13:43:12,418 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:43:12,456 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 13:43:12,695 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 13:43:12,721 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 13:43:12,953 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5c0272e0
-2024-05-14 13:43:12,954 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 13:43:13,034 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 13:43:13,229 ERROR [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Failed to initialize JPA EntityManagerFactory: Collection 'com.io.libraryproject.entity.Author.bookList' is 'mappedBy' a property named 'authorId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-2024-05-14 13:43:13,230 WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.io.libraryproject.entity.Author.bookList' is 'mappedBy' a property named 'authorId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-2024-05-14 13:43:13,230 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 13:43:13,274 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-2024-05-14 13:43:13,277 INFO  [main] org.apache.catalina.core.StandardService:Stopping service [Tomcat]
-2024-05-14 13:43:13,292 INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger:
+2024-05-18 15:17:18,063 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 5512 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
+2024-05-18 15:17:18,072 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
+2024-05-18 15:17:19,310 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-18 15:17:19,379 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 60 ms. Found 7 JPA repository interfaces.
+2024-05-18 15:17:20,158 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
+2024-05-18 15:17:20,170 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2024-05-18 15:17:20,170 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-18 15:17:20,255 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2024-05-18 15:17:20,255 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 2145 ms
+2024-05-18 15:17:20,581 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-18 15:17:20,648 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-18 15:17:20,685 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
+2024-05-18 15:17:20,902 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-18 15:17:20,926 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+2024-05-18 15:17:21,148 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7bc8ffbc
+2024-05-18 15:17:21,149 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+2024-05-18 15:17:21,238 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-18 15:17:22,317 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-18 15:17:22,536 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-18 15:17:23,023 INFO  [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory:Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-18 15:17:23,321 WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'bookController' defined in file [C:\Users\kosda\Desktop\library\target\classes\com\io\libraryproject\controller\BookController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'bookService' defined in file [C:\Users\kosda\Desktop\library\target\classes\com\io\libraryproject\service\BookService.class]: Unsatisfied dependency expressed through constructor parameter 5: Error creating bean with name 'loanService' defined in file [C:\Users\kosda\Desktop\library\target\classes\com\io\libraryproject\service\LoanService.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'bookService': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-05-18 15:17:23,322 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-18 15:17:23,323 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2024-05-18 15:17:23,327 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+2024-05-18 15:17:23,329 INFO  [main] org.apache.catalina.core.StandardService:Stopping service [Tomcat]
+2024-05-18 15:17:23,343 INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger:
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-05-14 13:43:13,309 ERROR [main] org.springframework.boot.SpringApplication:Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.io.libraryproject.entity.Author.bookList' is 'mappedBy' a property named 'authorId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.io.libraryproject.LibraryApplication.main(LibraryApplication.java:10)
-Caused by: org.hibernate.AnnotationException: Collection 'com.io.libraryproject.entity.Author.bookList' is 'mappedBy' a property named 'authorId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-	at org.hibernate.boot.model.internal.CollectionBinder.isReversePropertyInJoin(CollectionBinder.java:1622)
-	at org.hibernate.boot.model.internal.CollectionBinder.noAssociationTable(CollectionBinder.java:1636)
-	at org.hibernate.boot.model.internal.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1597)
-	at org.hibernate.boot.model.internal.CollectionBinder$1.secondPass(CollectionBinder.java:1588)
-	at org.hibernate.boot.model.internal.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1815)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1774)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:332)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
-	... 16 common frames omitted
-2024-05-14 13:44:13,825 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 13328 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 13:44:13,827 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 13:44:14,677 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 13:44:14,739 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 55 ms. Found 7 JPA repository interfaces.
-2024-05-14 13:44:15,439 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
-2024-05-14 13:44:15,450 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-2024-05-14 13:44:15,450 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-05-14 13:44:15,506 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-2024-05-14 13:44:15,506 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1642 ms
-2024-05-14 13:44:15,819 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 13:44:15,857 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:44:15,883 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 13:44:16,047 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 13:44:16,070 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 13:44:16,208 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3e2578ea
-2024-05-14 13:44:16,210 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 13:44:16,236 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 13:44:16,424 ERROR [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Failed to initialize JPA EntityManagerFactory: Collection 'com.io.libraryproject.entity.Category.bookList' is 'mappedBy' a property named 'categoryId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-2024-05-14 13:44:16,424 WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.io.libraryproject.entity.Category.bookList' is 'mappedBy' a property named 'categoryId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-2024-05-14 13:44:16,424 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 13:44:16,472 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-2024-05-14 13:44:16,476 INFO  [main] org.apache.catalina.core.StandardService:Stopping service [Tomcat]
-2024-05-14 13:44:16,487 INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger:
+2024-05-18 15:17:23,359 ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter:
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-05-14 13:44:16,499 ERROR [main] org.springframework.boot.SpringApplication:Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.io.libraryproject.entity.Category.bookList' is 'mappedBy' a property named 'categoryId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.io.libraryproject.LibraryApplication.main(LibraryApplication.java:10)
-Caused by: org.hibernate.AnnotationException: Collection 'com.io.libraryproject.entity.Category.bookList' is 'mappedBy' a property named 'categoryId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-	at org.hibernate.boot.model.internal.CollectionBinder.isReversePropertyInJoin(CollectionBinder.java:1622)
-	at org.hibernate.boot.model.internal.CollectionBinder.noAssociationTable(CollectionBinder.java:1636)
-	at org.hibernate.boot.model.internal.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1597)
-	at org.hibernate.boot.model.internal.CollectionBinder$1.secondPass(CollectionBinder.java:1588)
-	at org.hibernate.boot.model.internal.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1815)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1774)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:332)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
-	... 16 common frames omitted
-2024-05-14 13:44:35,383 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 6332 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 13:44:35,385 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 13:44:36,215 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 13:44:36,281 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 59 ms. Found 7 JPA repository interfaces.
-2024-05-14 13:44:36,934 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
-2024-05-14 13:44:36,944 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-2024-05-14 13:44:36,944 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-05-14 13:44:37,002 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-2024-05-14 13:44:37,003 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1584 ms
-2024-05-14 13:44:37,326 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 13:44:37,367 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:44:37,393 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 13:44:37,567 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 13:44:37,590 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 13:44:37,732 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@21688427
-2024-05-14 13:44:37,733 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 13:44:37,758 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 13:44:37,953 ERROR [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Failed to initialize JPA EntityManagerFactory: Collection 'com.io.libraryproject.entity.Publisher.bookList' is 'mappedBy' a property named 'publisherId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-2024-05-14 13:44:37,953 WARN  [main] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext:Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.io.libraryproject.entity.Publisher.bookList' is 'mappedBy' a property named 'publisherId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-2024-05-14 13:44:37,954 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 13:44:37,969 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-2024-05-14 13:44:37,971 INFO  [main] org.apache.catalina.core.StandardService:Stopping service [Tomcat]
-2024-05-14 13:44:37,984 INFO  [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger:
+***************************
+APPLICATION FAILED TO START
+***************************
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-05-14 13:44:37,998 ERROR [main] org.springframework.boot.SpringApplication:Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.io.libraryproject.entity.Publisher.bookList' is 'mappedBy' a property named 'publisherId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
-	at com.io.libraryproject.LibraryApplication.main(LibraryApplication.java:10)
-Caused by: org.hibernate.AnnotationException: Collection 'com.io.libraryproject.entity.Publisher.bookList' is 'mappedBy' a property named 'publisherId' which does not exist in the target entity 'com.io.libraryproject.entity.Book'
-	at org.hibernate.boot.model.internal.CollectionBinder.isReversePropertyInJoin(CollectionBinder.java:1622)
-	at org.hibernate.boot.model.internal.CollectionBinder.noAssociationTable(CollectionBinder.java:1636)
-	at org.hibernate.boot.model.internal.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1597)
-	at org.hibernate.boot.model.internal.CollectionBinder$1.secondPass(CollectionBinder.java:1588)
-	at org.hibernate.boot.model.internal.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1815)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1774)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:332)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
-	... 16 common frames omitted
-2024-05-14 13:44:51,782 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 21452 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 13:44:51,784 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 13:44:52,628 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 13:44:52,696 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 63 ms. Found 7 JPA repository interfaces.
-2024-05-14 13:44:53,358 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
-2024-05-14 13:44:53,366 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-2024-05-14 13:44:53,366 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-05-14 13:44:53,427 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-2024-05-14 13:44:53,427 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1610 ms
-2024-05-14 13:44:53,737 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 13:44:53,775 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:44:53,800 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 13:44:53,972 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 13:44:53,990 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 13:44:54,138 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@303fbc4
-2024-05-14 13:44:54,139 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 13:44:54,164 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 13:44:55,059 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:44:55,186 WARN  [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper:SQL Warning Code: 0, SQLState: 00000
-2024-05-14 13:44:55,186 WARN  [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper:constraint "uk_2rciowfm4ub2wre2wjecxc45n" of relation "t_author_book_list" does not exist, skipping
-2024-05-14 13:44:55,190 WARN  [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper:SQL Warning Code: 0, SQLState: 00000
-2024-05-14 13:44:55,190 WARN  [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper:constraint "uk_g8ssfwy5vbxpls97g5lx4lrcs" of relation "t_category_book_list" does not exist, skipping
-2024-05-14 13:44:55,196 WARN  [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper:SQL Warning Code: 0, SQLState: 00000
-2024-05-14 13:44:55,196 WARN  [main] org.hibernate.engine.jdbc.spi.SqlExceptionHelper:constraint "uk_l1yp7d1lrmfkc6agqtab213ad" of relation "t_publisher_book_list" does not exist, skipping
-2024-05-14 13:44:55,285 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 13:44:55,767 INFO  [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory:Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-14 13:44:56,206 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-14 13:44:56,712 INFO  [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-05-14 13:44:56,768 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ce2f4d6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58070889, org.springframework.security.web.context.SecurityContextHolderFilter@3f07eede, org.springframework.security.web.header.HeaderWriterFilter@52418721, org.springframework.web.filter.CorsFilter@5c71329f, org.springframework.security.web.authentication.logout.LogoutFilter@26ae9861, com.io.libraryproject.security.jwt.AuthTokenFilter@3ba3f40d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b76dfa6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1fd2f96d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@225fc6a2, org.springframework.security.web.session.SessionManagementFilter@7e130e34, org.springframework.security.web.access.ExceptionTranslationFilter@1ea44b7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4b37ede0]
-2024-05-14 13:44:57,120 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/v3/api-docs/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,121 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/v3/api-docs/**']
-2024-05-14 13:44:57,121 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,121 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='swagger-ui.html']
-2024-05-14 13:44:57,121 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger-ui/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,121 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger-ui/**']
-2024-05-14 13:44:57,121 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger*/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,121 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger*/**']
-2024-05-14 13:44:57,121 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,121 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/actuator/**']
-2024-05-14 13:44:57,121 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,121 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/']
-2024-05-14 13:44:57,121 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/index*']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,121 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/index*']
-2024-05-14 13:44:57,121 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='index.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,122 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='index.html']
-2024-05-14 13:44:57,122 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,122 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/images/**']
-2024-05-14 13:44:57,122 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,122 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/css/**']
-2024-05-14 13:44:57,122 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:44:57,122 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/js/**']
-2024-05-14 13:44:57,199 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port 8080 (http) with context path ''
-2024-05-14 13:44:57,212 INFO  [main] com.io.libraryproject.LibraryApplication:Started LibraryApplication in 5.781 seconds (process running for 6.092)
-2024-05-14 13:45:02,758 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 13:45:02,760 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 13:45:02,762 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-2024-05-14 13:51:00,837 INFO  [main] com.io.libraryproject.LibraryApplicationTests:Starting LibraryApplicationTests using Java 17.0.9 with PID 21468 (started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 13:51:00,838 INFO  [main] com.io.libraryproject.LibraryApplicationTests:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 13:51:01,961 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 13:51:02,026 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 58 ms. Found 7 JPA repository interfaces.
-2024-05-14 13:51:02,622 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 13:51:02,671 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:51:02,702 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 13:51:02,888 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 13:51:02,916 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 13:51:03,074 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@674ed201
-2024-05-14 13:51:03,076 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 13:51:03,101 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 13:51:03,955 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:51:04,094 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 13:51:04,561 INFO  [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory:Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-14 13:51:05,005 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-14 13:51:05,584 INFO  [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-05-14 13:51:05,665 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@58d85a00, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62808e8d, org.springframework.security.web.context.SecurityContextHolderFilter@603042a5, org.springframework.security.web.header.HeaderWriterFilter@4d13b552, org.springframework.web.filter.CorsFilter@5c26ab0a, org.springframework.security.web.authentication.logout.LogoutFilter@7ee46aaf, com.io.libraryproject.security.jwt.AuthTokenFilter@13437ce5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75ba33b8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62b71cfa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@774f2d7f, org.springframework.security.web.session.SessionManagementFilter@5cfb4b71, org.springframework.security.web.access.ExceptionTranslationFilter@570f2cf7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@21eb33d4]
-2024-05-14 13:51:06,139 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/v3/api-docs/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,139 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/v3/api-docs/**']
-2024-05-14 13:51:06,140 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,140 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='swagger-ui.html']
-2024-05-14 13:51:06,140 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/swagger-ui/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,140 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/swagger-ui/**']
-2024-05-14 13:51:06,140 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/swagger*/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,140 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/swagger*/**']
-2024-05-14 13:51:06,140 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,140 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/actuator/**']
-2024-05-14 13:51:06,140 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,140 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/']
-2024-05-14 13:51:06,140 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/index*']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,140 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/index*']
-2024-05-14 13:51:06,141 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='index.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,141 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='index.html']
-2024-05-14 13:51:06,141 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,141 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/images/**']
-2024-05-14 13:51:06,141 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,141 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/css/**']
-2024-05-14 13:51:06,141 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 13:51:06,141 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/js/**']
-2024-05-14 13:51:06,232 INFO  [main] com.io.libraryproject.LibraryApplicationTests:Started LibraryApplicationTests in 5.633 seconds (process running for 6.48)
-2024-05-14 13:51:06,726 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 13:51:06,728 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 13:51:06,730 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-2024-05-14 14:00:11,849 INFO  [main] com.io.libraryproject.LibraryApplicationTests:Starting LibraryApplicationTests using Java 17.0.9 with PID 18508 (started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 14:00:11,850 INFO  [main] com.io.libraryproject.LibraryApplicationTests:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 14:00:12,878 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 14:00:12,940 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 55 ms. Found 7 JPA repository interfaces.
-2024-05-14 14:00:13,542 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 14:00:13,587 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 14:00:13,613 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 14:00:13,793 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 14:00:13,820 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 14:00:13,965 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6dd2e453
-2024-05-14 14:00:13,967 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 14:00:14,002 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 14:00:14,835 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 14:00:14,970 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 14:00:15,435 INFO  [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory:Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-14 14:00:15,866 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-14 14:00:16,446 INFO  [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-05-14 14:00:16,539 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@35e55afa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@559baea1, org.springframework.security.web.context.SecurityContextHolderFilter@1e072d67, org.springframework.security.web.header.HeaderWriterFilter@71e064b2, org.springframework.web.filter.CorsFilter@6eef7af3, org.springframework.security.web.authentication.logout.LogoutFilter@20bd3082, com.io.libraryproject.security.jwt.AuthTokenFilter@56527ff2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1989a143, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b83545d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6de6467a, org.springframework.security.web.session.SessionManagementFilter@62267a22, org.springframework.security.web.access.ExceptionTranslationFilter@52c22bc5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4de3a1ca]
-2024-05-14 14:00:16,994 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/v3/api-docs/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,995 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/v3/api-docs/**']
-2024-05-14 14:00:16,995 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,995 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='swagger-ui.html']
-2024-05-14 14:00:16,995 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/swagger-ui/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,995 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/swagger-ui/**']
-2024-05-14 14:00:16,996 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/swagger*/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,996 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/swagger*/**']
-2024-05-14 14:00:16,996 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,996 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/actuator/**']
-2024-05-14 14:00:16,996 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,996 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/']
-2024-05-14 14:00:16,996 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/index*']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,996 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/index*']
-2024-05-14 14:00:16,996 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='index.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,996 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='index.html']
-2024-05-14 14:00:16,996 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,996 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/images/**']
-2024-05-14 14:00:16,996 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,997 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/css/**']
-2024-05-14 14:00:16,997 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Ant [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:16,997 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Ant [pattern='/js/**']
-2024-05-14 14:00:17,088 INFO  [main] com.io.libraryproject.LibraryApplicationTests:Started LibraryApplicationTests in 5.468 seconds (process running for 6.157)
-2024-05-14 14:00:17,530 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 14:00:17,533 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 14:00:17,537 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-2024-05-14 14:00:30,416 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 19500 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 14:00:30,417 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 14:00:31,266 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 14:00:31,330 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 58 ms. Found 7 JPA repository interfaces.
-2024-05-14 14:00:32,009 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
-2024-05-14 14:00:32,018 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-2024-05-14 14:00:32,019 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-05-14 14:00:32,075 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-2024-05-14 14:00:32,075 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1623 ms
-2024-05-14 14:00:32,406 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 14:00:32,445 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 14:00:32,471 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 14:00:32,635 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 14:00:32,656 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 14:00:32,912 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@774304ca
-2024-05-14 14:00:32,913 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 14:00:32,938 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 14:00:33,731 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 14:00:33,859 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 14:00:34,261 INFO  [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory:Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-14 14:00:34,658 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-14 14:00:35,141 INFO  [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-05-14 14:00:35,212 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@22e733f5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27211dd9, org.springframework.security.web.context.SecurityContextHolderFilter@8f2513c, org.springframework.security.web.header.HeaderWriterFilter@75f5293c, org.springframework.web.filter.CorsFilter@2081c267, org.springframework.security.web.authentication.logout.LogoutFilter@6d921d6b, com.io.libraryproject.security.jwt.AuthTokenFilter@3ba3f40d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d9ac1ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7080e8fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@794a3410, org.springframework.security.web.session.SessionManagementFilter@39ee039d, org.springframework.security.web.access.ExceptionTranslationFilter@34e0d52e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6752d7fc]
-2024-05-14 14:00:35,544 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/v3/api-docs/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,544 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/v3/api-docs/**']
-2024-05-14 14:00:35,544 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,544 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='swagger-ui.html']
-2024-05-14 14:00:35,544 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger-ui/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,544 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger-ui/**']
-2024-05-14 14:00:35,544 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger*/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,544 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger*/**']
-2024-05-14 14:00:35,544 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,544 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/actuator/**']
-2024-05-14 14:00:35,545 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,545 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/']
-2024-05-14 14:00:35,545 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/index*']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,545 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/index*']
-2024-05-14 14:00:35,545 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='index.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,545 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='index.html']
-2024-05-14 14:00:35,545 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,545 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/images/**']
-2024-05-14 14:00:35,545 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,545 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/css/**']
-2024-05-14 14:00:35,545 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:00:35,545 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/js/**']
-2024-05-14 14:00:35,618 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port 8080 (http) with context path ''
-2024-05-14 14:00:35,631 INFO  [main] com.io.libraryproject.LibraryApplication:Started LibraryApplication in 5.58 seconds (process running for 5.866)
-2024-05-14 14:06:35,168 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 14:06:35,170 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 14:06:35,173 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-2024-05-14 14:06:38,532 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 5876 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
-2024-05-14 14:06:38,534 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
-2024-05-14 14:06:39,402 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-14 14:06:39,469 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 57 ms. Found 7 JPA repository interfaces.
-2024-05-14 14:06:40,139 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
-2024-05-14 14:06:40,148 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-2024-05-14 14:06:40,148 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
-2024-05-14 14:06:40,202 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-2024-05-14 14:06:40,203 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1634 ms
-2024-05-14 14:06:40,516 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-14 14:06:40,561 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 14:06:40,586 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
-2024-05-14 14:06:40,755 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-14 14:06:40,774 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-2024-05-14 14:06:40,925 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@303fbc4
-2024-05-14 14:06:40,926 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-2024-05-14 14:06:40,953 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-05-14 14:06:41,865 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 14:06:41,995 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 14:06:42,419 INFO  [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory:Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-14 14:06:42,847 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-14 14:06:43,352 INFO  [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-05-14 14:06:43,407 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6375af2a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b37ede0, org.springframework.security.web.context.SecurityContextHolderFilter@6ff879e5, org.springframework.security.web.header.HeaderWriterFilter@39ee039d, org.springframework.web.filter.CorsFilter@67f07fa1, org.springframework.security.web.authentication.logout.LogoutFilter@76c6b12c, com.io.libraryproject.security.jwt.AuthTokenFilter@3ba3f40d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9a3d0f4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@171a6fd1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@644ae4ff, org.springframework.security.web.session.SessionManagementFilter@561b39f4, org.springframework.security.web.access.ExceptionTranslationFilter@52d04234, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@784fb189]
-2024-05-14 14:06:43,728 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/v3/api-docs/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,728 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/v3/api-docs/**']
-2024-05-14 14:06:43,728 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,728 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='swagger-ui.html']
-2024-05-14 14:06:43,728 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger-ui/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,728 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger-ui/**']
-2024-05-14 14:06:43,728 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger*/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger*/**']
-2024-05-14 14:06:43,729 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/actuator/**']
-2024-05-14 14:06:43,729 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/']
-2024-05-14 14:06:43,729 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/index*']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/index*']
-2024-05-14 14:06:43,729 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='index.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='index.html']
-2024-05-14 14:06:43,729 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/images/**']
-2024-05-14 14:06:43,729 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/css/**']
-2024-05-14 14:06:43,729 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
-2024-05-14 14:06:43,729 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/js/**']
-2024-05-14 14:06:43,802 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port 8080 (http) with context path ''
-2024-05-14 14:06:43,815 INFO  [main] com.io.libraryproject.LibraryApplication:Started LibraryApplication in 5.631 seconds (process running for 5.904)
-2024-05-14 14:06:47,037 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-05-14 14:06:47,040 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-2024-05-14 14:06:47,041 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   bookController defined in file [C:\Users\kosda\Desktop\library\target\classes\com\io\libraryproject\controller\BookController.class]
+┌─────┐
+|  bookService defined in file [C:\Users\kosda\Desktop\library\target\classes\com\io\libraryproject\service\BookService.class]
+↑     ↓
+|  loanService defined in file [C:\Users\kosda\Desktop\library\target\classes\com\io\libraryproject\service\LoanService.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-05-18 15:18:15,192 INFO  [main] com.io.libraryproject.LibraryApplication:Starting LibraryApplication using Java 17.0.9 with PID 9532 (C:\Users\kosda\Desktop\library\target\classes started by kosda in C:\Users\kosda\Desktop\library)
+2024-05-18 15:18:15,194 INFO  [main] com.io.libraryproject.LibraryApplication:No active profile set, falling back to 1 default profile: "default"
+2024-05-18 15:18:16,068 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-18 15:18:16,134 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 60 ms. Found 7 JPA repository interfaces.
+2024-05-18 15:18:16,818 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port 8080 (http)
+2024-05-18 15:18:16,829 INFO  [main] org.apache.catalina.core.StandardService:Starting service [Tomcat]
+2024-05-18 15:18:16,829 INFO  [main] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-18 15:18:16,883 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
+2024-05-18 15:18:16,883 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1653 ms
+2024-05-18 15:18:17,205 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-18 15:18:17,244 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-18 15:18:17,269 INFO  [main] org.hibernate.cache.internal.RegionFactoryInitiator:HHH000026: Second-level cache disabled
+2024-05-18 15:18:17,447 INFO  [main] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo:No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-18 15:18:17,470 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+2024-05-18 15:18:17,626 INFO  [main] com.zaxxer.hikari.pool.HikariPool:HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d551ec6
+2024-05-18 15:18:17,627 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+2024-05-18 15:18:17,655 WARN  [main] org.hibernate.orm.deprecation:HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-18 15:18:18,488 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-18 15:18:18,619 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-18 15:18:19,092 INFO  [main] org.springframework.data.jpa.repository.query.QueryEnhancerFactory:Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-18 15:18:19,474 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-18 15:18:20,022 INFO  [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver:Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-05-18 15:18:20,082 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@67f07fa1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@644ae4ff, org.springframework.security.web.context.SecurityContextHolderFilter@7b9e4a2a, org.springframework.security.web.header.HeaderWriterFilter@66c70e18, org.springframework.web.filter.CorsFilter@2a080ba3, org.springframework.security.web.authentication.logout.LogoutFilter@2a85e4f4, com.io.libraryproject.security.jwt.AuthTokenFilter@5f409872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77d5c4c6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66ade539, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ea4abef, org.springframework.security.web.session.SessionManagementFilter@47fb038d, org.springframework.security.web.access.ExceptionTranslationFilter@3f7e72a7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6fd6d887]
+2024-05-18 15:18:20,428 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/v3/api-docs/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,429 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/v3/api-docs/**']
+2024-05-18 15:18:20,429 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='swagger-ui.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,429 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='swagger-ui.html']
+2024-05-18 15:18:20,429 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger-ui/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,429 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger-ui/**']
+2024-05-18 15:18:20,429 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/swagger*/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,429 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/swagger*/**']
+2024-05-18 15:18:20,429 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/actuator/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,429 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/actuator/**']
+2024-05-18 15:18:20,429 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,429 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/']
+2024-05-18 15:18:20,429 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/index*']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,429 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/index*']
+2024-05-18 15:18:20,429 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='index.html']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,430 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='index.html']
+2024-05-18 15:18:20,430 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/images/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,436 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/images/**']
+2024-05-18 15:18:20,436 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/css/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,436 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/css/**']
+2024-05-18 15:18:20,436 WARN  [main] org.springframework.security.config.annotation.web.builders.WebSecurity:You are asking Spring Security to ignore Mvc [pattern='/js/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-05-18 15:18:20,436 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will not secure Mvc [pattern='/js/**']
+2024-05-18 15:18:20,519 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port 8080 (http) with context path ''
+2024-05-18 15:18:20,533 INFO  [main] com.io.libraryproject.LibraryApplication:Started LibraryApplication in 5.684 seconds (process running for 5.962)
+2024-05-18 15:18:28,183 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-18 15:18:28,185 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+2024-05-18 15:18:28,187 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.

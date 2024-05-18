@@ -59,6 +59,10 @@ public class AuthorService {
                 new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION)));
         authorRepository.delete(author);
     }
+    public Author getAuthorByIdForBook(Long id) {
+        return authorRepository.findAuthorById(id).orElseThrow(()->
+                new ResourceNotFoundException(String.format(ErrorMessage.AUTHOR_NOT_FOUND_EXCEPTION,id)));
+    }
 
 
 }

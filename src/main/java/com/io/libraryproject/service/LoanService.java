@@ -3,18 +3,24 @@ package com.io.libraryproject.service;
 import com.io.libraryproject.dto.request.LoanRequest;
 import com.io.libraryproject.dto.response.LoanResponse;
 import com.io.libraryproject.entity.Book;
+import com.io.libraryproject.entity.Loan;
 import com.io.libraryproject.entity.User;
 import com.io.libraryproject.repository.LoanRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LoanService {
     private final LoanRepository loanRepository;
-    private final UserService userService;
-    private final BookService bookService;
-    public LoanService(LoanRepository loanRepository, UserService userService, BookService bookService) {
+
+    public LoanService(LoanRepository loanRepository) {
         this.loanRepository = loanRepository;
-        this.userService = userService;
-        this.bookService = bookService;
+
+    }
+
+    public List<Loan> findByBookId(Long id) {
+        List<Loan> loans = loanRepository.findByBookId(id);
+        return loans;
     }
 }

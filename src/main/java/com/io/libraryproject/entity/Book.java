@@ -68,5 +68,5 @@ public class Book {
     private LocalDateTime createDate;
 
     @NotNull
-    private Boolean builtIn = false;
+    private boolean builtIn = false;
 }
