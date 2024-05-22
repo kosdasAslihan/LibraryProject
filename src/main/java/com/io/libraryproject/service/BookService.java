@@ -138,4 +138,7 @@ public class BookService {
         }
         bookRepository.delete(book);
     }
+    public void save(Book book) {
+        bookRepository.save(book);
+    }
 }

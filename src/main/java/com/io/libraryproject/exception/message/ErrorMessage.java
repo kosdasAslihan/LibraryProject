@@ -16,4 +16,8 @@ public class ErrorMessage {
     public final static String USER_NOT_FOUND_EXCEPTION = "User with id : %s not found";
     public final static String PASSWORD_NOT_MATCHED_MESSAGE = "Your passwords are not matched";
     public final static String ISBN_ALREADY_EXIST_MESSAGE = "ISBN : %s already exist";
+    public final static String BOOK_IS_NOT_AVAILABLE_MESSAGE = "The book is currently in user";
+    public final static String BOOK_IS_NOT_LOANABLE_MESSAGE = "The book is close to loan";
+    public static final String BOOK_IS_NOT_HAVE_PERMISSON = "You do not have a permission to loan";
+    public final static String SCORE_IS_NOT_ENOUGH = "Your score does not between -2 and 2";
 }

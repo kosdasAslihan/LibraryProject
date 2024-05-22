@@ -1,6 +1,7 @@
 package com.io.libraryproject.controller;
 
 import com.io.libraryproject.dto.request.LoanRequest;
+import com.io.libraryproject.dto.response.LbResponse;
 import com.io.libraryproject.dto.response.LoanResponse;
 import com.io.libraryproject.service.LoanService;
 import jakarta.validation.Valid;
@@ -19,5 +20,12 @@ public class LoanController {
 
     public LoanController(LoanService loanService) {
         this.loanService = loanService;
+    }
+    @PostMapping
+    @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
+    public ResponseEntity<LoanResponse> createLoan(@Valid @RequestBody LoanRequest loanRequest) {
+        LoanResponse loanResponse = loanService.saveLoan(loanRequest);
+
+        return ResponseEntity.ok(loanResponse);
     }
 }
